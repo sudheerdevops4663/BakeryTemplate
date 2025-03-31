@@ -26,6 +26,10 @@ jobs:
 
       - name: Restore NuGet packages
         run: nuget restore
+        
+      - name: Restore dependencies
+        run: dotnet restore path/to/your/solution.sln
+  
 
       - name: Publish to folder
         run: msbuild /nologo /verbosity:m /t:Build /t:pipelinePreDeployCopyAllFilesToOneFolder /p:_PackageTempDir="\published\"
